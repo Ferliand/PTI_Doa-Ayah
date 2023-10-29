@@ -37,32 +37,38 @@
 
                                         <thead>
                                             <tr>
+                                                <th>No</th>
                                                 <th>Nama Arsip</th>
                                                 <th>Kode Arsip</th>
                                                 <th>Perihal</th>
                                                 <th>Kategori</th>
                                                 <th>Tanggal Terbit</th>
                                                 <th>Tanggal Selesai</th>
-                                                <th>Lokasi</th>
+                                                <th>Lokasi Arsip</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($arsips as $arsip )
-                                            <tr>
-                                                <td>{{$arsip->nama}}</td>
-                                                <td>{{$arsip->k}}</td>
-                                                <td>{{$arsip->nama}}System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>2011/04/25</td>
-                                                <td>2011/04/25</td>
-                                                <td>Loker A</td>
-                                                <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                    <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                    <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                    <button class="btn btn-success"><i class="fas fa-download"></i></button>
-                                                </td>
-                                            </tr>
+                                            @php
+                                                $no = 1;
+                                            @endphp
+                                            @foreach ($arsips as $arsip)
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $arsip->nama_arsip }}</td>
+                                                    <td>{{ $arsip->kode_arsip }}</td>
+                                                    <td>{{ $arsip->perihal }}System Architect</td>
+                                                    <td>{{ $arsip->kategori }}</td>
+                                                    <td>{{ $arsip->tanggal_terbit }}</td>
+                                                    <td>{{ $arsip->tanggal_selesai }}</td>
+                                                    <td>{{ $arsip->lokasi_arsip }}</td>
+                                                    <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                                                        <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-success"><i
+                                                                class="fas fa-download"></i></button>
+                                                    </td>
+                                                </tr>
                                             @endforeach
 
 

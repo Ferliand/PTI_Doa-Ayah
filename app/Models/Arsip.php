@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Arsip extends Model
 {
     use HasFactory;
-    protected $table = 'arsip';
+    protected $table = 'arsips';
 
     protected $fillable = [
-        'id', 'nama', 'kategori_arsip', 'tanggal_dibuat', 'tanggal_selesai', 'lokasi_arsip', 'file'
+        'id', 'nama_arsip','kode_arsip','perihal', 'kategori', 'tanggal_dibuat', 'tanggal_selesai', 'lokasi_arsip', 'file'
     ];
 
 }

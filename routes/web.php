@@ -9,15 +9,18 @@ use App\Http\Controllers\ArsipController;
 //     return view('welcome');
 // });
 
-Route::get('/arsip', function () {
-    return view('arsip');
-});
+// Route::get('/arsip', function () {
+//     return view('arsip');
+// });
+
 Route::get('/tambaharsip', function () {
     return view('tambaharsip');
 });
 
-Route::resource('Arsip', ArsipController::class);
+Route::resource('arsip', ArsipController::class);
+Route::get('/arsip', [App\Http\Controllers\ArsipController::class, 'index'])->name('arsip');
+
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
