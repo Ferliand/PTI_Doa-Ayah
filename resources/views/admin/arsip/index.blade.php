@@ -48,10 +48,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($arsips as $arsip )
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>01</td>
-                                                <td>System Architect</td>
+                                                <td>{{$arsip->nama}}</td>
+                                                <td>{{$arsip->k}}</td>
+                                                <td>{{$arsip->nama}}System Architect</td>
                                                 <td>Edinburgh</td>
                                                 <td>2011/04/25</td>
                                                 <td>2011/04/25</td>
@@ -62,6 +63,8 @@
                                                     <button class="btn btn-success"><i class="fas fa-download"></i></button>
                                                 </td>
                                             </tr>
+                                            @endforeach
+
 
                                         </tbody>
                                     </table>
