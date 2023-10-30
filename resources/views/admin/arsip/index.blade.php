@@ -57,7 +57,7 @@
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $arsip->nama_arsip }}</td>
                                                     <td>{{ $arsip->kode_arsip }}</td>
-                                                    <td>{{ $arsip->perihal }}System Architect</td>
+                                                    <td>{{ $arsip->perihal }}</td>
                                                     <td>{{ $arsip->kategori }}</td>
                                                     <td>{{ $arsip->tanggal_terbit }}</td>
                                                     <td>{{ $arsip->tanggal_selesai }}</td>
