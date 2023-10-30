@@ -8,11 +8,11 @@
                     <div class="card-header" style="background-color: blue; color: white; border-bottom: 2px solid white;">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <span class="font-weight-bold" style="font-size: 30px;">Arsip</span>
+                                <span class="font-weight-bold" style="font-size: 30px;">{{$title}}</span>
                             </div>
                             <div>
-                                <button class="btn btn-success"
-                                    style="font-size: 24px; border-radius: 100px; background-color: #0D72F2">+</button>
+                                <span class="btn btn-success"
+                                    style="font-size: 24px; border-radius: 100px; background-color: #0D72F2">+</span>
                                 <a href="{{ route('arsip.create') }}"><button class="btn btn-primary" id="openPopupButton"
                                         style="font-size: 20px; border-radius: 20px;">
                                         Tambah Arsip Baru</button></a>

@@ -14,7 +14,8 @@ class ArsipController extends Controller
     public function index()
     {
         $arsips = Arsip::all();
-        return view("admin.arsip.index", compact("arsips"));
+        $title = "Arsip";
+        return view("admin.arsip.index", compact(["arsips","title"]));
     }
 
     /**
