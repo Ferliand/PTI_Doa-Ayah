@@ -22,7 +22,7 @@ class ArsipController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.arsip.create");
     }
 
     /**

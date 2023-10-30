@@ -13,12 +13,12 @@ use App\Http\Controllers\ArsipController;
 //     return view('arsip');
 // });
 
-Route::get('/tambaharsip', function () {
-    return view('tambaharsip');
-});
+// Route::get('/tambaharsip', function () {
+//     return view('tambaharsip');
+// });
 
 Route::resource('arsip', ArsipController::class);
-Route::get('/arsip', [App\Http\Controllers\ArsipController::class, 'index'])->name('arsip');
+// Route::get('/', [App\Http\Controllers\ArsipController::class, 'index'])->name('arsip');
 
 
 Auth::routes();
