@@ -19,39 +19,20 @@ class ArsipController extends Controller
     {
         $arsips = Arsip::all();
         $title = "Arsip";
-        return view("admin.arsip.index", compact(["arsips","title"]));
+        return view("admin.arsip.index", compact(["arsips", "title"]));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $title = "Tambah Arsip";
-        return view("admin.arsip.create" , compact(["title"]));
+        return view("admin.arsip.create", compact(["title"]));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreArsipRequest $request)
     {
         Log::info('Received POST data:', $request->all());
-
         $validatedData = $request->validate([
-            'nama_arsip' => [
-                'required',
-                Rule::unique('arsips')->where(function ($query) use ($request) {
-                    return $query->where('nama_arsip', $request->NamaDokumen);
-                }),
-            ],
+            'file' => 'required|mimes:pdf,doc,docx|max:5120',
         ]);
-
-
-        $filename =  $file->getClientOriginalName();
-        // File upload location
-        $location = '../public/assets/images/';
-
 
         Arsip::create([
             'nama_arsip' => $request->nama_arsip,
@@ -61,13 +42,12 @@ class ArsipController extends Controller
             'kategori' => $request->kategori,
             'tanggal_dibuat' => $request->tanggal_dibuat,
             'tanggal_selesai' => $request->tanggal_selesai,
-            'file' => $filename,
-
+            'file' => $request->file,
         ]);
 
         // $file->move(public_path($location), $filename);
         Session::flash('success', 'Data User Berhasil Ditambahkan');
-        return view('admin.user.create');
+        return view('admin.arsip.create');
     }
 
     /**
