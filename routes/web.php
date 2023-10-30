@@ -18,7 +18,7 @@ use App\Http\Controllers\ArsipController;
 // });
 
 Route::resource('arsip', ArsipController::class);
-// Route::get('/', [App\Http\Controllers\ArsipController::class, 'index'])->name('arsip');
+Route::get('/tambaharsip', [App\Http\Controllers\ArsipController::class, 'create'])->name('arsip');
 
 
 Auth::routes();

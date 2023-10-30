@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Arsip;
 use App\Http\Requests\StoreArsipRequest;
 use App\Http\Requests\UpdateArsipRequest;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 
 class ArsipController extends Controller
 {
@@ -23,7 +27,8 @@ class ArsipController extends Controller
      */
     public function create()
     {
-        return view("admin.arsip.create");
+        $title = "Tambah Arsip";
+        return view("admin.arsip.create" , compact(["title"]));
     }
 
     /**
@@ -31,7 +36,38 @@ class ArsipController extends Controller
      */
     public function store(StoreArsipRequest $request)
     {
-        //
+        Log::info('Received POST data:', $request->all());
+
+        $validatedData = $request->validate([
+            'nama_arsip' => [
+                'required',
+                Rule::unique('arsips')->where(function ($query) use ($request) {
+                    return $query->where('nama_arsip', $request->NamaDokumen);
+                }),
+            ],
+        ]);
+
+
+        $filename =  $file->getClientOriginalName();
+        // File upload location
+        $location = '../public/assets/images/';
+
+
+        Arsip::create([
+            'nama_arsip' => $request->nama_arsip,
+            'kode_arsip' => $request->kode_arsip,
+            'perihal' =>  $request->perihal,
+            'lokasi_arsip' => $request->lokasi_arsip,
+            'kategori' => $request->kategori,
+            'tanggal_dibuat' => $request->tanggal_dibuat,
+            'tanggal_selesai' => $request->tanggal_selesai,
+            'file' => $filename,
+
+        ]);
+
+        // $file->move(public_path($location), $filename);
+        Session::flash('success', 'Data User Berhasil Ditambahkan');
+        return view('admin.user.create');
     }
 
     /**
