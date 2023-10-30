@@ -13,9 +13,9 @@
                             <div>
                                 <button class="btn btn-success"
                                     style="font-size: 24px; border-radius: 100px; background-color: #0D72F2">+</button>
-                                <button  class="btn btn-primary" id="openPopupButton"
-                                    style="font-size: 20px; border-radius: 20px;"><a
-                                        href="{{ route('arsip.create') }}">Tambah Arsip Baru</a> </button>
+                                <a href="{{ route('arsip.create') }}"><button class="btn btn-primary" id="openPopupButton"
+                                        style="font-size: 20px; border-radius: 20px;">
+                                        Tambah Arsip Baru</button></a>
                             </div>
                         </div>
 
@@ -66,8 +66,6 @@
                                                         </td>
                                                     </tr>
                                                 @endforeach
-
-
                                             </tbody>
                                         </table>
                                     </div>
