@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Arsip;
 use App\Http\Requests\StoreArsipRequest;
+use App\Http\Requests\DestroyArsipRequest;
 use App\Http\Requests\UpdateArsipRequest;
+use App\Http\Resources\ArsipResource;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
@@ -55,8 +57,9 @@ class ArsipController extends Controller
 
     public function edit($id)
     {
+        $title = "Edit Arsip";
         $arsip = Arsip::where('id', $id)->first();
-        return view('admin.arsip.edit', compact('arsip'));
+        return view('admin.arsip.edit', compact(['title','arsip']));
 
     }
 
