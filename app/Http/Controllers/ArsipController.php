@@ -53,9 +53,11 @@ class ArsipController extends Controller
     }
 
 
-    public function edit(Arsip $arsip)
+    public function edit($id)
     {
-        //
+        $arsip = Arsip::where('id', $id)->first();
+        return view('admin.arsip.edit', compact('arsip'));
+
     }
 
     public function update(UpdateArsipRequest $request, Arsip $arsip)
