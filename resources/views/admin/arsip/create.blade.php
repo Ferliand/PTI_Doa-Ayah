@@ -2,14 +2,13 @@
 
 @section('content')
     <section>
-
         <body>
             <div class="container py-5" style="background-color: blue; border-radius: 25px;">
                 <div class="container py-6">
                     <div class="card-header" style="background-color: blue; color: white;">
                         <div class="d-flex justify-content-between align-items-center">
                             <div style="display: flex; align-items: center;">
-                                <a href="#" style="text-decoration: none; margin-right: 10px;color:white">
+                                <a href="/arsip" style="text-decoration: none; margin-right: 10px;color:white">
                                     <i class="fa-sharp fa-solid fa-arrow-left" style="font-size: 30px;"></i>
                                 </a>
                                 <span class="font-weight-bold" style="font-size: 30px;">{{ $title }}</span>
@@ -24,7 +23,7 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form action="{{ route('arsip.store') }}" method="post" enctype="multipart/form-data">
+                                        <form  method="post" action="{{ route('arsip.store') }}"  enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group row">
                                                 <label for="namaArsip" class="col-md-4 col-form-label">Nama Arsip</label>
@@ -47,19 +46,26 @@
                                                         placeholder="Perihal" style="background-color: #E0E0E0;" name="perihal">
                                                 </div>
                                             </div>
+                                            <div class="form-group row" style="display: none;">
+                                                <label for="tanggalSelesai" class="col-md-4 col-form-label">Tanggal dibuat</label>
+                                                <div class="col-md-8">
+                                                    <input type="date" class="form-control" id="tanggal_selesai"
+                                                         style="background-color: #E0E0E0;" name="tanggal_terbit">
+                                                </div>
+                                            </div>
                                             <div class="form-group row">
                                                 <label for="tanggalSelesai" class="col-md-4 col-form-label">Tanggal
                                                     Selesai</label>
                                                 <div class="col-md-8">
-                                                    <input type="date" class="form-control" id="tanggalSelesai"
-                                                        name="tanggalSelesai" style="background-color: #E0E0E0;" name="tanggal_selesai">
+                                                    <input type="date" class="form-control" id="tanggal_selesai"
+                                                         style="background-color: #E0E0E0;" name="tanggal_selesai">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="lokasiArsip" class="col-md-4 col-form-label">Lokasi
                                                     Arsip</label>
                                                 <div class="col-md-8">
-                                                    <select class="form-control" id="lokasiArsip" name="lokasi_arsip"
+                                                    <select class="form-control" id="lokasi_arsip" name="lokasi_arsip"
                                                         style="background-color: #E0E0E0;">
                                                         <option value="Lemari">Lemari</option>
                                                         <option value="Rak">Rak</option>
@@ -83,7 +89,7 @@
                                             <div class="form-group row">
                                                 <label for="uploadfile" class="col-md-4 col-form-label">Upload File</label>
                                                 <div class="col-md-8">
-                                                    <input type="file" class="form-control" id="uploadFile"
+                                                    <input type="file" class="form-control" id="file"
                                                         name="file" style="background-color: #E0E0E0;">
                                                 </div>
                                             </div>

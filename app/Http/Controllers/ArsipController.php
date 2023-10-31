@@ -12,16 +12,12 @@ use Illuminate\Support\Facades\Session;
 
 class ArsipController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $arsips = Arsip::all();
         $title = "Arsip";
         return view("admin.arsip.index", compact(["arsips", "title"]));
     }
-
     public function create()
     {
         $title = "Tambah Arsip";
@@ -29,7 +25,7 @@ class ArsipController extends Controller
     }
     public function store(StoreArsipRequest $request)
     {
-        Log::info('Received POST data:', $request->all());
+        // Log::info('Received POST data:', $request->all());
         $validatedData = $request->validate([
             'file' => 'required|mimes:pdf,doc,docx|max:5120',
         ]);
@@ -50,33 +46,23 @@ class ArsipController extends Controller
         return view('admin.arsip.create');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Arsip $arsip)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Arsip $arsip)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateArsipRequest $request, Arsip $arsip)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Arsip $arsip)
     {
         //

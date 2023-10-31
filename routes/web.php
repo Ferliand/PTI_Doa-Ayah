@@ -14,13 +14,13 @@ use App\Http\Controllers\ArsipController;
 // });
 
 // Route::get('/tambaharsip', function () {
-//     return view('tambaharsip');
+//     return view('admin.arsip.create');
 // });
 
 Route::resource('arsip', ArsipController::class);
-Route::get('/tambaharsip', [App\Http\Controllers\ArsipController::class, 'create'])->name('arsip');
+Route::get('/tambaharsip', [ArsipController::class, 'create'])->name('arsip');
 
 
-Auth::routes();
+// Auth::routes();
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
