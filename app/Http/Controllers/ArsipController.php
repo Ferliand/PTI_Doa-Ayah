@@ -65,8 +65,14 @@ class ArsipController extends Controller
         //
     }
 
-    public function destroy(Arsip $arsip)
+    public function destroy($id)
     {
-        //
+        $data = Arsip::where('id', $id)->first();
+        $data->delete();
+        Session::flash('success', 'Data Arsip Berhasil Dihapus');
+
+        $title = "Arsip";
+        $arsip=Arsip::all();
+        return view('admin.arsip.index',compact(['arsip','title']));
     }
 }
