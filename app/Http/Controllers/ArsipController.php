@@ -74,8 +74,11 @@ class ArsipController extends Controller
         $data->delete();
         Session::flash('success', 'Data Arsip Berhasil Dihapus');
 
-        $title = "Arsip";
-        $arsip=Arsip::all();
-        return view('admin.arsip.index',compact(['arsip','title']));
+        // $title = "Arsip";
+        $arsips=Arsip::all();
+        // return view('admin.arsip.index',compact(['arsips','title']));
+        return redirect()->back();
+
     }
+
 }
