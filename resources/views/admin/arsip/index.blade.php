@@ -2,7 +2,6 @@
 
 @section('content')
     <section>
-
         <body>
             <div class="container py-5" style="background-color: blue; border-radius: 25px;">
                 <div class="container py-6">
@@ -14,7 +13,7 @@
                             <div>
                                 <span class="btn btn-success"
                                     style="font-size: 24px; border-radius: 100px; background-color: #0D72F2">+</span>
-                                <a href="{{ route('createarsip') }}"><button class="btn btn-primary" id="openPopupButton"
+                                <a href="{{ route('arsip.create') }}"><button class="btn btn-primary" id="openPopupButton"
                                         style="font-size: 20px; border-radius: 20px;">
                                         Tambah Arsip Baru</button></a>
                             </div>
@@ -57,7 +56,7 @@
                                                         <td>{{ $arsip->tanggal_selesai }}</td>
                                                         <td>{{ $arsip->lokasi_arsip }}</td>
                                                         <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                            <a href="{{ route('editarsip', $arsip->id) }}"><button class="btn btn-warning">
+                                                            <a href="{{ route('arsip.edit', $arsip->id) }}"><button class="btn btn-warning">
                                                                 <i class="fas fa-edit"></i></button></a>
                                                             <a href="{{ route('arsip.destroy', $arsip->id)}}"><button class="btn btn-danger">
                                                                 <i class="fas fa-trash"></i></button></a>

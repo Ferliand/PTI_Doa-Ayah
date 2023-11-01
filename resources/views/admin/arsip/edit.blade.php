@@ -28,7 +28,9 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form>
+                                    <form method="POST" action="{{ route('arsip.update' ,$arsip->id) }}" enctype="multipart/form-data">
+                                        @csrf
+                                        @method('PUT')
                                         <div class="form-group row">
                                             <label for="namaArsip" class="col-md-4 col-form-label">Nama Arsip</label>
                                             <div class="col-md-8">
@@ -51,6 +53,14 @@
                                                 placeholder="{{$arsip->perihal}}" value="{{ $arsip->perihal }}" style="background-color: #E0E0E0;">
                                             </div>
                                         </div>
+                                        <div class="form-group row" hidden>
+                                            <label for="tanggalSelesai" class="col-md-4 col-form-label">Tanggal
+                                                dibuat</label>
+                                            <div class="col-md-8">
+                                                <input type="date" class="form-control" id="tanggalSelesai"
+                                                    name="tanggal_selesai" style="background-color: #E0E0E0;" placeholder="{{$arsip->tanggal_selesai}}" value="{{ $arsip->tanggal_selesai }}">
+                                            </div>
+                                        </div>
                                         <div class="form-group row">
                                             <label for="tanggalSelesai" class="col-md-4 col-form-label">Tanggal
                                                 Selesai</label>
@@ -62,24 +72,24 @@
                                         <div class="form-group row">
                                             <label for="lokasiArsip" class="col-md-4 col-form-label">Lokasi Arsip</label>
                                             <div class="col-md-8">
-                                                <select class="form-control" id="lokasiArsip" name="lokasi_arsip"
-                                                    style="background-color: #E0E0E0;">
-                                                    <option value="Lemari">Lemari</option>
-                                                    <option value="Rak">Rak</option>
+                                                <select class="form-control" id="lokasiArsip" name="lokasi_arsip" style="background-color: #E0E0E0;">
+                                                    <option value="" disabled selected>{{$arsip->lokasi_arsip}}</option>
+                                                    <option value="Lemari" {{$arsip->lokasi_arsip == 'Lemari' ? 'selected' : ''}}>Lemari</option>
+                                                    <option value="Rak" {{$arsip->lokasi_arsip == 'Rak' ? 'selected' : ''}}>Rak</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="kategori" class="col-md-4 col-form-label">Kategori</label>
                                             <div class="col-md-8">
-                                                <select class="form-control" id="kategori" name="kategori"
-                                                    style="background-color: #E0E0E0;">
-                                                    <option value="Perizinan">Perizinan</option>
-                                                    <option value="SIP">SIP (Surat Izin Praktik)</option>
-                                                    <option value="STR">STR (Surat Tanda Regist)</option>
-                                                    <option value="PKWT">PKWT</option>
-                                                    <option value="MoU Spesialis">MoU Spesialis</option>
-                                                    <option value="Kontrak Part Time">Kontrak Part Time</option>
+                                                <select class="form-control" id="kategori" name="kategori" style="background-color: #E0E0E0;">
+                                                    <option value="" disabled selected>{{$arsip->kategori}}</option>
+                                                    <option value="Perizinan" {{$arsip->kategori == 'Perizinan' ? 'selected' : ''}}>Perizinan</option>
+                                                    <option value="SIP" {{$arsip->kategori == 'SIP' ? 'selected' : ''}}>SIP (Surat Izin Praktik)</option>
+                                                    <option value="STR" {{$arsip->kategori == 'STR' ? 'selected' : ''}}>STR (Surat Tanda Regist)</option>
+                                                    <option value="PKWT" {{$arsip->kategori == 'PKWT' ? 'selected' : ''}}>PKWT</option>
+                                                    <option value="MoU Spesialis" {{$arsip->kategori == 'MoU Spesialis' ? 'selected' : ''}}>MoU Spesialis</option>
+                                                    <option value="Kontrak Part Time" {{$arsip->kategori == 'Kontrak Part Time' ? 'selected' : ''}}>Kontrak Part Time</option>
                                                 </select>
                                             </div>
                                         </div>

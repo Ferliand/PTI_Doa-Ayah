@@ -23,7 +23,7 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form  method="post" action="{{ route('storearsip') }}"  enctype="multipart/form-data">
+                                        <form  method="post" action="{{ route('arsip.store') }}"  enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group row">
                                                 <label for="namaArsip" class="col-md-4 col-form-label">Nama Arsip</label>

@@ -27,6 +27,6 @@ Route::get('/arsip/{id}', [ArsipController::class, 'edit'])->name('editarsip');
 
 
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
